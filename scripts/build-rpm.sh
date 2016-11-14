@@ -6,7 +6,7 @@
 #
 #          FILE: build-rpm.sh
 #
-#   DESCRIPTION:
+#   DESCRIPTION: Build the rpm within a docker container
 #
 #===============================================================================
 
@@ -55,8 +55,12 @@ function download_spec_source() {
 
 function initialize_mock_chroot() {
   echoinfo "Initializing mock chroot"
+  # NOTE: we have to disregard the return code of this because of an incompatability
+  #       issue with btrfs on versions earlier than CentOS 7
+  set +e
   $MOCK_BIN --root="$MOCK_CONFIG" \
     --init
+  set -e
 }
 
 function install_spec_dependencies() {
