@@ -44,6 +44,7 @@ function run_docker_build() {
   docker run \
     --cap-add=SYS_ADMIN \
     --security-opt apparmor:unconfined \
+    --rm \
     -e OS="${OS}" \
     -e DIST="${DIST}" \
     -e PACKAGE="${PACKAGE}" \
