@@ -9,7 +9,7 @@ env:
     - OS=centos DIST=7 PACKAGE=aria2
 
 install:
-  - ./scripts/install.sh
+  - scripts/install.sh
 
 script:
-  - ./scripts/build.sh
+  - scripts/build.sh
