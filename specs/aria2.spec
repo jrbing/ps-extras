@@ -1,6 +1,9 @@
+%global debug_package %{nil}
+%global __debug_install_post /bin/true
+
 Summary: Download utility with BitTorrent and Metalink support
 Name: aria2
-Version: 1.26.0
+Version: 1.28.0
 Release: 1%{?dist}
 License: GPL
 Group: Applications/Internet
