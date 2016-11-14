@@ -14,8 +14,9 @@ cd /vagrant
 docker run \
     --cap-add=SYS_ADMIN \
     --security-opt apparmor:unconfined \
-    -e MOCK_CONFIG=epel-7-x86_64 \
-    -e MOCK_PACKAGE=aria2 \
-    -v /tmp/rpmbuild:/rpmbuild \
+    -e OS="el" \
+    -e DIST="7" \
+    -e PACKAGE="aria2" \
+    --volume /tmp/rpmbuild:/rpmbuild \
     jrbing/ps-extras
 ```
