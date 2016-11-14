@@ -6,10 +6,10 @@ services:
 
 env:
   matrix:
-    - MOCK_CONFIG=epel-7-x86_64 MOCK_PACKAGE=aria2
+    - OS=centos DIST=7 PACKAGE=aria2
 
-before_install:
-  - ./scripts/bootstrap.sh
+install:
+  - ./scripts/install.sh
 
 script:
   - ./scripts/build.sh

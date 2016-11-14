@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
+# shellcheck disable=2086
 #===============================================================================
 # vim: softtabstop=2 shiftwidth=2 expandtab fenc=utf-8 spelllang=en ft=sh
 #===============================================================================
 #
 #          FILE: build-rpm.sh
 #
-#         USAGE: ./build-rpm.sh
+#   DESCRIPTION:
 #
 #===============================================================================
 
@@ -14,20 +15,19 @@ set -u          # Treat unset variables as an error
 set -o pipefail # Prevent errors in a pipeline from being masked
 IFS=$'\n\t'     # Set the internal field separator to a tab and newline
 
+: ${OS:?"OS must be defined"}
+: ${DIST:?"DIST must be defined"}
+: ${PACKAGE:?"PACKAGE must be defined"}
+
+readonly MOCK_CONFIG="epel-${DIST}-x86_64"
 readonly MOCK_BIN=/usr/bin/mock
-readonly MOCK_BASE=/rpmbuild
-readonly SPECDIR="$MOCK_BASE/SPECS"
-readonly SRPMSDIR="$MOCK_BASE/SRPMS"
-readonly SOURCEDIR="$MOCK_BASE/SOURCES"
-readonly RPMSDIR="$MOCK_BASE/RPMS"
-readonly CACHEDIR="$MOCK_BASE/cache/mock"
+readonly BUILDROOT=/rpmbuild
 
-# shellcheck disable=2086
-: ${MOCK_CONFIG:?"MOCK_CONFIG must be defined"}
-# shellcheck disable=2086
-: ${MOCK_PACKAGE:?"MOCK_PACKAGE must be defined"}
-
-readonly SPECFILEPATH="${SPECDIR}/${MOCK_PACKAGE}".spec
+readonly SPECDIR="$BUILDROOT/SPECS"
+readonly SOURCEDIR="$BUILDROOT/SOURCES"
+readonly CACHEDIR="$BUILDROOT/CACHE"
+readonly OUTPUTDIR="$BUILDROOT/OUTPUT"
+readonly SPECFILEPATH="${SPECDIR}/${PACKAGE}".spec
 
 ###############
 #  Functions  #
@@ -71,17 +71,17 @@ function create_source_rpm() {
     --buildsrpm \
     --spec="$SPECFILEPATH" \
     --sources="$SOURCEDIR" \
-    --resultdir="$SRPMSDIR" \
+    --resultdir="$OUTPUTDIR" \
     --no-cleanup-after
 }
 
 function build_rpm() {
   echoinfo "Building rpm"
   # shellcheck disable=2155
-  local source_rpm=$(find $SRPMSDIR -type f -name "*.src.rpm")
+  local source_rpm=$(find $OUTPUTDIR -type f -name "*.src.rpm")
   $MOCK_BIN --root="${MOCK_CONFIG}" \
     --rebuild "$source_rpm" \
-    --resultdir="$RPMSDIR" \
+    --resultdir="$OUTPUTDIR" \
     --no-clean
 }
 
