@@ -46,7 +46,7 @@ function show_package_summary() {
   echo '-----------------------------------------------------------'
   echo "Package:          ${PACKAGE}"
   echo "OS:               ${OS}"
-  echo "OS Release:       ${RELEASE}"
+  echo "OS Release:       ${DIST}"
   echo "PackageCloud:     ${PACKAGECLOUD_REPO}"
   echo '-----------------------------------------------------------'
   echo
