@@ -13,3 +13,7 @@ install:
 
 script:
   - scripts/build.sh
+
+deploy:
+  provider: script
+  script: scripts/deploy.sh
