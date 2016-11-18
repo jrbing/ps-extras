@@ -1,6 +1,18 @@
-# ps-extras
+[![Build Status](https://travis-ci.org/jrbing/ps-extras.svg?branch=master)](https://travis-ci.org/jrbing/ps-extras)
 
-Spec files and build scripts for creating RPM packages using Travis CI and deploying to packagecloud.io.
+ps-extras
+=========
+
+Spec files and build scripts for creating RPM packages using [Travis CI][travis] and deploying to [packagecloud.io][packagecloud].
+
+
+## Repository Installation ##
+
+Run the following to import the repository. 
+
+```bash
+curl -s https://packagecloud.io/install/repositories/jrbing/ps-extras/script.rpm.sh | sudo bash
+```
 
 ## Running Locally ##
 
@@ -20,3 +32,7 @@ docker run \
     --volume /tmp/rpmbuild:/rpmbuild \
     jrbing/ps-extras
 ```
+
+[packagecloud]:https://travis-ci.org/jrbing/ps-extras "https://travis-ci.org/jrbing/ps-extras"
+[travis]:https://packagecloud.io/jrbing/ps-extras "https://packagecloud.io/jrbing/ps-extras"
+
