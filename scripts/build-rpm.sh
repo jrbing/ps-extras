@@ -66,7 +66,7 @@ function initialize_mock_chroot() {
 function install_spec_dependencies() {
   echoinfo "Installing dependencies to chroot"
   $MOCK_BIN --root="$MOCK_CONFIG" \
-    --install openssl-devel boost libxml2-devel
+    --install openssl-devel boost libxml2-devel ncurses-devel libevent-devel
 }
 
 function create_source_rpm() {
