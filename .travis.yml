@@ -7,6 +7,7 @@ services:
 env:
   matrix:
     - OS=centos DIST=7 PACKAGE=aria2
+    - OS=centos DIST=7 PACKAGE=tmux
 
 install:
   - scripts/install.sh
