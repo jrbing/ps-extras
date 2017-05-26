@@ -22,7 +22,7 @@ Although this project is primarily intended to be used with TravisCI, there is a
 vagrant up
 vagrant ssh
 cd /vagrant
-./scripts/bootstrap.sh
+./scripts/install.sh
 docker run \
     --cap-add=SYS_ADMIN \
     --security-opt apparmor:unconfined \
