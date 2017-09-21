@@ -33,6 +33,6 @@ docker run \
     jrbing/ps-extras
 ```
 
-[packagecloud]:https://travis-ci.org/jrbing/ps-extras "https://travis-ci.org/jrbing/ps-extras"
-[travis]:https://packagecloud.io/jrbing/ps-extras "https://packagecloud.io/jrbing/ps-extras"
+[packagecloud]:https://packagecloud.io/jrbing/ps-extras "https://packagecloud.io/jrbing/ps-extras"
+[travis]:https://travis-ci.org/jrbing/ps-extras "https://travis-ci.org/jrbing/ps-extras"
 
