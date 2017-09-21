@@ -50,9 +50,15 @@ function create_buildroot() {
   mkdir -p "${OUTPUTDIR}"
 }
 
+function create_buildroot_user() {
+  echoinfo "Creating buildroot user and group"
+  sudo groupadd --gid 1000 builder
+  sudo useradd --system --shell /bin/false --uid 1000 --gid 1000 builder
+}
+
 function modify_buildroot_ownership() {
   echoinfo "Modifying buildroot ownership"
-  chown -R 1000:1000 "${HOST_VOLUME_BUILDROOT}"
+  sudo chown -R builder:builder "${HOST_VOLUME_BUILDROOT}"
 }
 
 function copy_spec_files() {
