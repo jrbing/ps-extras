@@ -22,7 +22,8 @@ IFS=$'\n\t'     # Set the internal field separator to a tab and newline
 : ${PACKAGECLOUD_REPO:?"PACKAGECLOUD_REPO must be defined"}
 : ${PACKAGECLOUD_TOKEN:?"PACKAGECLOUD_TOKEN must be defined"}
 
-readonly BUILDDIR="/tmp/rpmbuild/OUTPUT"
+readonly HOST_VOLUME_BUILDROOT="${HOME}/rpmbuild"
+readonly BUILDDIR="${HOST_VOLUME_BUILDROOT}/OUTPUT"
 
 ###############
 #  Functions  #
