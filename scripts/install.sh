@@ -20,7 +20,7 @@ IFS=$'\n\t'     # Set the internal field separator to a tab and newline
 #  Variables  #
 ###############
 
-readonly HOST_VOLUME_BUILDROOT="/tmp/rpmbuild"
+readonly HOST_VOLUME_BUILDROOT="${HOME}/rpmbuild"
 readonly SPECDIR="$HOST_VOLUME_BUILDROOT/SPECS"
 readonly SOURCEDIR="$HOST_VOLUME_BUILDROOT/SOURCES"
 readonly CACHEDIR="$HOST_VOLUME_BUILDROOT/CACHE"

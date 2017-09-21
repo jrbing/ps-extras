@@ -19,7 +19,7 @@ IFS=$'\n\t'     # Set the internal field separator to a tab and newline
 : ${DIST:?"DIST must be defined"}
 : ${PACKAGE:?"PACKAGE must be defined"}
 
-readonly HOST_VOLUME_BUILDROOT="/tmp/rpmbuild"
+readonly HOST_VOLUME_BUILDROOT="${HOME}/rpmbuild"
 readonly CONTAINER_VOLUME_BUILDROOT="/rpmbuild"
 
 ###############
