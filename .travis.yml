@@ -11,9 +11,11 @@ env:
     - OS=centos DIST=7 PACKAGE=aria2
     - OS=centos DIST=7 PACKAGE=tmux
     - OS=centos DIST=7 PACKAGE=toss
+    - OS=centos DIST=6 PACKAGE=toss
     - OS=ol DIST=7 PACKAGE=aria2
     - OS=ol DIST=7 PACKAGE=tmux
     - OS=ol DIST=7 PACKAGE=toss
+    - OS=ol DIST=6 PACKAGE=toss
 
 install:
   - scripts/install.sh
