@@ -87,6 +87,7 @@ function show_mock_version() {
 
 create_buildroot
 copy_spec_files
+create_buildroot_user
 modify_buildroot_ownership
 build_docker_image
 inspect_docker_image
