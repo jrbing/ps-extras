@@ -3,7 +3,7 @@
 
 Summary: Terminal multiplexer
 Name: tmux
-Version: 2.3
+Version: 2.5
 Release: 1%{?dist}
 License: BSD
 Group: Applications/System
