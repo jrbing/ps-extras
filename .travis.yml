@@ -10,8 +10,10 @@ env:
   matrix:
     - OS=centos DIST=7 PACKAGE=aria2
     - OS=centos DIST=7 PACKAGE=tmux
+    - OS=centos DIST=7 PACKAGE=node_exporter
     - OS=ol DIST=7 PACKAGE=aria2
     - OS=ol DIST=7 PACKAGE=tmux
+    - OS=ol DIST=7 PACKAGE=node_exporter
 
 install:
   - scripts/install.sh
