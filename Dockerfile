@@ -9,7 +9,7 @@ RUN yum clean all && \
   yum -y update && \
   yum -y install epel-release && \
   yum -y install mock rpm-build redhat-rpm-config rpmdevtools nosync lzop pigz lbzip2 && \
-  useradd -u 1000 builder && \
+  useradd -u 1001 builder && \
   usermod -a -G mock builder && \
   mkdir -p /home/builder/.config && \
   install --group=mock --mode=2775 --directory /rpmbuild/CACHE && \

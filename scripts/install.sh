@@ -52,8 +52,8 @@ function create_buildroot() {
 
 function create_buildroot_user() {
   echoinfo "Creating buildroot user and group"
-  sudo groupadd --gid 1000 builder
-  sudo useradd --system --shell /bin/false --uid 1000 --gid 1000 builder
+  sudo groupadd --gid 1001 builder
+  sudo useradd --system --shell /bin/false --uid 1001 --gid 1000 builder
 }
 
 function modify_buildroot_ownership() {
@@ -62,8 +62,13 @@ function modify_buildroot_ownership() {
 }
 
 function copy_spec_files() {
-  echoinfo "Copying specfiles to buildroot"
+  echoinfo "Copying spec files to buildroot"
   cp specs/* "${SPECDIR}/"
+}
+
+function copy_source_files() {
+  echoinfo "Copying source files to buildroot"
+  cp source/* "${SOURCEDIR}/"
 }
 
 function build_docker_image() {
@@ -87,6 +92,7 @@ function show_mock_version() {
 
 create_buildroot
 copy_spec_files
+copy_source_files
 create_buildroot_user
 modify_buildroot_ownership
 build_docker_image
