@@ -53,7 +53,7 @@ function create_buildroot() {
 function create_buildroot_user() {
   echoinfo "Creating buildroot user and group"
   sudo groupadd --gid 1001 builder
-  sudo useradd --system --shell /bin/false --uid 1001 --gid 1000 builder
+  sudo useradd --system --shell /bin/false --uid 1099 --gid 1000 builder
 }
 
 function modify_buildroot_ownership() {
