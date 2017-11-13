@@ -14,6 +14,8 @@ env:
     - OS=ol DIST=7 PACKAGE=aria2
     - OS=ol DIST=7 PACKAGE=tmux
     - OS=ol DIST=7 PACKAGE=node_exporter
+    - OS=centos DIST=6 PACKAGE=node_exporter
+    - OS=ol DIST=6 PACKAGE=node_exporter
 
 install:
   - scripts/install.sh
