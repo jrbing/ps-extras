@@ -77,4 +77,5 @@ fi
 %if 0%{?el7}
 /usr/lib/systemd/system/node_exporter.service
 %endif
+/etc/sysconfig/node_exporter
 %{_sbindir}/*

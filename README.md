@@ -23,14 +23,10 @@ vagrant up
 vagrant ssh
 cd /vagrant
 ./scripts/install.sh
-docker run \
-    --cap-add=SYS_ADMIN \
-    --security-opt apparmor:unconfined \
-    -e OS="el" \
-    -e DIST="7" \
-    -e PACKAGE="aria2" \
-    --volume /tmp/rpmbuild:/rpmbuild \
-    jrbing/ps-extras
+export OS="el"
+export DIST="7"
+export PACKAGE="aria2"
+./scripts/build.sh
 ```
 
 [packagecloud]:https://packagecloud.io/jrbing/ps-extras "https://packagecloud.io/jrbing/ps-extras"
