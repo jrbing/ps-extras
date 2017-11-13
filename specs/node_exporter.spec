@@ -1,7 +1,5 @@
 #%define _unpackaged_files_terminate_build 0
 #%define debug_package %{nil}
-%bcond_with sysvinit
-%bcond_without systemd
 
 Summary: Prometheus exporter for machine metrics
 Name: node-exporter
@@ -18,10 +16,10 @@ Source3: node_exporter.service
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 
 Requires(pre): /usr/sbin/useradd
-%if %{with sysvinit}
+%if 0%{?el6}
 Requires: daemonize
 %endif
-%if %{with systemd}
+%if 0%{?el7}
 Requires(post): systemd
 Requires(preun): systemd
 Requires(postun): systemd
@@ -38,7 +36,7 @@ Prometheus exporter for machine metrics.
 echo
 
 %install
-%if %{with sysvinit}
+%if 0%{?el6}
 install -d -p   %{buildroot}%{_sbindir} \
                 %{buildroot}/etc/init.d \
                 %{buildroot}/etc/sysconfig
@@ -46,7 +44,7 @@ install -p -m 0644 %{_sourcedir}/node_exporter.sysconfig %{buildroot}/etc/syscon
 install -p -m 0644 %{_sourcedir}/node_exporter.init %{buildroot}/etc/init.d/node_exporter
 install -p -m 0755 node_exporter %{buildroot}%{_sbindir}/node_exporter
 %endif
-%if %{with systemd}
+%if 0%{?el7}
 install -d -p   %{buildroot}%{_sbindir} \
                 %{buildroot}/usr/lib/systemd/system \
                 %{buildroot}/etc/sysconfig
@@ -65,12 +63,10 @@ getent passwd node_exporter > /dev/null || \
 mkdir -p /var/lib/node_exporter/textfile_collector
 
 %files
-%if %{with sysvinit}
+%if 0%{?el6}
 /etc/init.d/node_exporter
-#%config(noreplace) %{_sysconfdir}/sysconfig/node_exporter
 %endif
-%if %{with systemd}
+%if 0%{?el7}
 /usr/lib/systemd/system/node_exporter.service
-#%config(noreplace) %{_sysconfdir}/sysconfig/node_exporter
 %endif
 %{_sbindir}/*
