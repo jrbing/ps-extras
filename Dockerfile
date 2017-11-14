@@ -1,6 +1,8 @@
 
 FROM centos:centos7
-MAINTAINER JR Bing <jr@jrbing.com>
+LABEL maintainer="JR Bing <jr@jrbing.com>" \
+      base.image="centos:centos7" \
+      version="1.0"
 
 VOLUME ["/rpmbuild"]
 ADD ./scripts/build-rpm.sh /build-rpm.sh
