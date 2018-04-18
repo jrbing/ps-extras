@@ -65,8 +65,12 @@ function initialize_mock_chroot() {
 
 function install_spec_dependencies() {
   echoinfo "Installing dependencies to chroot"
+  #$MOCK_BIN --root="$MOCK_CONFIG" \
+    #--install openssl-devel boost libxml2-devel ncurses-devel libevent-devel
+  # shellcheck disable=2155
+  local source_rpm=$(find $OUTPUTDIR -type f -name "*.src.rpm")
   $MOCK_BIN --root="$MOCK_CONFIG" \
-    --install openssl-devel boost libxml2-devel ncurses-devel libevent-devel
+    --installdeps "$source_rpm"
 }
 
 function create_source_rpm() {
@@ -89,16 +93,11 @@ function build_rpm() {
     --no-clean
 }
 
-function cleanup_before_exit () {
-  echoinfo "Cleaning up"
-}
-trap cleanup_before_exit EXIT
-
 ##########
 #  Main  #
 ##########
 download_spec_source
 initialize_mock_chroot
-install_spec_dependencies
 create_source_rpm
+install_spec_dependencies
 build_rpm
