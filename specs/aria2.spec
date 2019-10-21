@@ -3,7 +3,7 @@
 
 Summary: Download utility with BitTorrent and Metalink support
 Name: aria2
-Version: 1.34.0
+Version: 1.35.0
 Release: 1%{?dist}
 BuildArch: x86_64
 License: GPL
