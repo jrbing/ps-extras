@@ -4,8 +4,7 @@ LABEL maintainer="JR Bing <jr@jrbing.com>" \
       base.image="centos:centos7" \
       version="1.0"
 
-VOLUME ["/rpmbuild"]
-ADD ./scripts/build-rpm.sh /build-rpm.sh
+#VOLUME ["/rpmbuild"]
 
 RUN yum clean all && \
   yum -y update && \
@@ -22,6 +21,8 @@ RUN chown builder:builder /home/builder/.rpmmacros
 
 ADD ./etc/mock.cfg /home/builder/.config/mock.cfg
 RUN chown -R builder:builder /home/builder/.config
+
+ADD ./scripts/build-rpm.sh /build-rpm.sh
 
 USER builder
 ENV HOME /home/builder
