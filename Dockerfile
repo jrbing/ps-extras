@@ -1,7 +1,7 @@
 
-FROM centos:centos7
+FROM centos:centos8
 LABEL maintainer="JR Bing <jr@jrbing.com>" \
-      base.image="centos:centos7" \
+      base.image="centos:centos8" \
       version="1.0"
 
 VOLUME ["/rpmbuild"]

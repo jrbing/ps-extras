@@ -8,9 +8,13 @@ services:
 
 env:
   matrix:
+    - OS=centos DIST=8 PACKAGE=aria2
+    - OS=centos DIST=8 PACKAGE=tmux
     - OS=centos DIST=7 PACKAGE=aria2
     - OS=centos DIST=7 PACKAGE=tmux
     - OS=centos DIST=6 PACKAGE=tmux
+    - OS=ol DIST=8 PACKAGE=aria2
+    - OS=ol DIST=8 PACKAGE=tmux
     - OS=ol DIST=7 PACKAGE=aria2
     - OS=ol DIST=7 PACKAGE=tmux
     - OS=ol DIST=6 PACKAGE=tmux
