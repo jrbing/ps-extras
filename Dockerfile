@@ -10,7 +10,7 @@ ADD ./scripts/build-rpm.sh /build-rpm.sh
 RUN yum clean all && \
   yum -y update && \
   yum -y install epel-release && \
-  yum -y install mock rpm-build redhat-rpm-config rpmdevtools nosync lzop pigz lbzip2 && \
+  yum -y install mock rpm-build redhat-rpm-config rpmdevtools lzop pigz && \
   useradd -u 1099 builder && \
   usermod -a -G mock builder && \
   mkdir -p /home/builder/.config && \
