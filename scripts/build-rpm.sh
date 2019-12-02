@@ -21,8 +21,7 @@ IFS=$'\n\t'     # Set the internal field separator to a tab and newline
 
 readonly MOCK_CONFIG="epel-${DIST}-x86_64"
 readonly MOCK_BIN=/usr/bin/mock
-readonly BUILDROOT=./build
-#readonly BUILDROOT=/rpmbuild
+readonly BUILDROOT=/rpmbuild
 
 readonly SPECDIR="$BUILDROOT/SPECS"
 readonly SOURCEDIR="$BUILDROOT/SOURCES"
@@ -45,20 +44,6 @@ function echoerror() {
   local EC="\033[0m"
   printf "${RC} ✖  ERROR${EC}: %s\n" "$@" 1>&2;
 }
-
-function create_buildroot() {
-  echoinfo "Creating buildroot directory"
-  mkdir -p "${SPECDIR}"
-  mkdir -p "${SOURCEDIR}"
-  mkdir -p "${CACHEDIR}"
-  mkdir -p "${OUTPUTDIR}"
-}
-
-function copy_spec_files() {
-  echoinfo "Copying spec files to buildroot"
-  cp specs/* "${SPECDIR}/"
-}
-
 
 function download_spec_source() {
   echoinfo "Downloading source files"
@@ -111,8 +96,6 @@ function build_rpm() {
 ##########
 #  Main  #
 ##########
-create_buildroot
-copy_spec_files
 download_spec_source
 initialize_mock_chroot
 create_source_rpm
