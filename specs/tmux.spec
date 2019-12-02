@@ -3,7 +3,7 @@
 
 Summary: Terminal multiplexer
 Name: tmux
-Version: 2.9a
+Version: 3.0a
 Release: 1%{?dist}
 BuildArch: x86_64
 License: BSD
